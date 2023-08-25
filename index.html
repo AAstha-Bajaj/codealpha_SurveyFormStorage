@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Survey Form</title>
+  <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+  <form onsubmit="myfunc(event)">
+    <div>
+      <label>Full name</label>
+      <input type="text" id="full_name" required />
+    </div>
+    <div>
+      <label>Gender</label>
+      <input type="radio" id="gender" name="gender" required /> Male
+      <input type="radio" name="gender"  /> Female
+      
+    </div>
+    <div>
+      <label>Date of Birth</label>
+      <input type="date" id="date_of_birth"  required />
+    </div>
+    <div>
+      <label>Email Id</label>
+      <input type="email" id="email_id" required />
+    </div>
+    <div>
+      <label>Ethinicity</label>
+      <input type="text" id="ethinicity" required />
+    </div>
+    <div>
+      <label>Location</label>
+      <input type="text" id="location" required />
+    </div>
+    <div>
+      <label>Education</label>
+      <input type="text" id="education"  required /> 
+      
+    </div>
+    <div >
+    <button type="submit">Submit</button>
+  </div>
+  </form>
+
+  <script  type="text/javascript">
+     function myfunc(event){
+      event.preventDefault();
+
+      var full_name = document.getElementById("full_name").value;
+      var temp_gender = document.getElementById("gender").value;
+      var date_of_birth = document.getElementById("date_of_birth").value;
+      var email_id = document.getElementById("email_id").value;
+      var ethinicity = document.getElementById("ethinicity").value;
+      var location = document.getElementById("location").value;
+      var education = document.getElementById("education").value;
+
+      temp_gender.checked ? gender = "Male" : gender = "Female";
+
+      localStorage.setItem('ls_full_name',full_name);
+      localStorage.setItem('ls_gender', gender);
+      localStorage.setItem('ls_date_of_birth', date_of_birth);
+      localStorage.setItem('ls_email_id', email_id);
+      localStorage.setItem('ls_ethinicity', ethinicity);
+      localStorage.setItem('ls_location', location);
+      localStorage.setItem('ls_education', education);
+     }
+  </script>
+</body>
+</html>
